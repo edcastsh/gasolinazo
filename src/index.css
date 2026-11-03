@@ -1,3 +1,42 @@
+@import 'tailwindcss';
+@import '@heroui/styles';
+
+[data-design-theme='uber'] {
+  color-scheme: light;
+  --background: #f8f4f5;
+  --foreground: #1a1718;
+  --surface: #fff;
+  --surface-foreground: #1a1718;
+  --surface-secondary: #f4edef;
+  --surface-secondary-foreground: #1a1718;
+  --surface-tertiary: #efe8ea;
+  --surface-tertiary-foreground: #1a1718;
+  --overlay: #fff;
+  --overlay-foreground: #1a1718;
+  --default: #eeeaeb;
+  --default-foreground: #1b1718;
+  --accent: #000;
+  --accent-foreground: #fcfcfc;
+  --success: #05a357;
+  --success-foreground: #fcfcfc;
+  --warning: #ffc043;
+  --warning-foreground: #120900;
+  --danger: #de1135;
+  --danger-foreground: #fcfcfc;
+  --field-background: #fff;
+  --field-border: #e1ddde;
+  --field-foreground: #1a1718;
+  --field-placeholder: #777072;
+  --border: #e1ddde;
+  --separator: #e8e3e4;
+  --segment: #fff;
+  --segment-foreground: #1a1718;
+  --muted: #777072;
+  --focus: #000;
+  --radius: 0.25rem;
+  --field-radius: 0.25rem;
+}
+
 :root {
   --bg: #ffffff;
   --bg-secondary: #f4f4f5;

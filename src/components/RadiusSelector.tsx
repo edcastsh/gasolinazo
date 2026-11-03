@@ -1,3 +1,4 @@
+import { Label, Radio, RadioGroup } from '@heroui/react'
 import type { RadiusValue } from '../stores/useFilters'
 import styles from './RadiusSelector.module.css'
 
@@ -15,17 +16,29 @@ interface Props {
 
 export function RadiusSelector({ selected, onSelect }: Props) {
   return (
-    <div className={styles.chips}>
-      {RADIUS_OPTIONS.map((opt) => (
-        <button
-          key={opt.value}
-          className={`${styles.chip} ${selected === opt.value ? styles.active : ''}`}
-          onClick={() => onSelect(opt.value)}
-          type="button"
-        >
-          {opt.label}
-        </button>
-      ))}
-    </div>
+    <RadioGroup
+      name="search-radius"
+      value={String(selected)}
+      onChange={(value) => onSelect(Number(value) as RadiusValue)}
+    >
+      <Label>Radio de búsqueda</Label>
+      <div className={styles.chips}>
+        {RADIUS_OPTIONS.map((opt) => (
+          <Radio
+            key={opt.value}
+            value={String(opt.value)}
+            onClick={() => {
+              if (selected === opt.value) onSelect(opt.value)
+            }}
+          >
+            <Radio.Content
+              className={`${styles.chip} ${selected === opt.value ? styles.active : ''}`}
+            >
+              {opt.label}
+            </Radio.Content>
+          </Radio>
+        ))}
+      </div>
+    </RadioGroup>
   )
 }
