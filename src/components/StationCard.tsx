@@ -57,9 +57,7 @@ export function StationCard({ station, fuelType, rank, isCheapest }: Props) {
         )}
       </div>
       <div className={styles.navBlock}>
-        {price != null && (
-          <span className={styles.price}>${price.toFixed(2)}</span>
-        )}
+        {price != null && <span className={styles.price}>${price.toFixed(2)}</span>}
         <Navigation className={styles.navIcon} size={16} strokeWidth={2} />
       </div>
     </button>

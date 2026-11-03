@@ -17,16 +17,7 @@ export const useViewport = create<ViewportState>((set) => ({
   setBounds: (bounds) => set({ bounds }),
 }))
 
-export function isWithinBounds(
-  bounds: ViewportBounds | null,
-  lat: number,
-  lng: number,
-): boolean {
+export function isWithinBounds(bounds: ViewportBounds | null, lat: number, lng: number): boolean {
   if (!bounds) return true
-  return (
-    lat <= bounds.north &&
-    lat >= bounds.south &&
-    lng <= bounds.east &&
-    lng >= bounds.west
-  )
+  return lat <= bounds.north && lat >= bounds.south && lng <= bounds.east && lng >= bounds.west
 }

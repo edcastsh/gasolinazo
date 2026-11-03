@@ -30,13 +30,7 @@ function createUserIcon() {
   })
 }
 
-function FitToRadius({
-  center,
-  radius,
-}: {
-  center: [number, number]
-  radius: number
-}) {
+function FitToRadius({ center, radius }: { center: [number, number]; radius: number }) {
   const map = useMap()
 
   useEffect(() => {
@@ -46,13 +40,7 @@ function FitToRadius({
   return null
 }
 
-function ViewportMarkers({
-  stations,
-  fuelType,
-}: {
-  stations: Gasolinera[]
-  fuelType: FuelType
-}) {
+function ViewportMarkers({ stations, fuelType }: { stations: Gasolinera[]; fuelType: FuelType }) {
   const map = useMap()
   const bounds = useViewport((s) => s.bounds)
   const setBounds = useViewport((s) => s.setBounds)

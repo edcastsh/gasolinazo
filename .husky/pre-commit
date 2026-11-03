@@ -1,0 +1,3 @@
+: git pre-commit hook
+
+pnpm exec lint-staged

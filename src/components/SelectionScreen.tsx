@@ -41,9 +41,7 @@ export function SelectionScreen() {
         <div className={styles.hero}>
           <Fuel className={styles.logo} size={48} strokeWidth={1.5} />
           <h1 className={styles.title}>Gasolinazo</h1>
-          <p className={styles.subtitle}>
-            Encuentra la gasolinera más barata cerca de ti
-          </p>
+          <p className={styles.subtitle}>Encuentra la gasolinera más barata cerca de ti</p>
         </div>
 
         {!fuelType && (
@@ -75,11 +73,7 @@ export function SelectionScreen() {
             {error && (
               <div className={styles.locationStatus}>
                 <p className={styles.error}>{error}</p>
-                <button
-                  className={styles.retryBtn}
-                  onClick={() => requestLocation()}
-                  type="button"
-                >
+                <button className={styles.retryBtn} onClick={() => requestLocation()} type="button">
                   Reintentar
                 </button>
               </div>

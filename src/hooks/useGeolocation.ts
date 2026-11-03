@@ -34,7 +34,8 @@ export function useGeolocation() {
       },
       (err) => {
         let message = 'Unable to retrieve your location.'
-        if (err.code === err.PERMISSION_DENIED) message = 'Location permission denied. Please enable it in your browser settings.'
+        if (err.code === err.PERMISSION_DENIED)
+          message = 'Location permission denied. Please enable it in your browser settings.'
         if (err.code === err.POSITION_UNAVAILABLE) message = 'Location information is unavailable.'
         if (err.code === err.TIMEOUT) message = 'Location request timed out.'
         setState({ coords: null, loading: false, error: message })

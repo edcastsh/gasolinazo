@@ -19,6 +19,6 @@ Aquí se guarda copia de cada story refinada con skill `story`, en estado aproba
 
 ## Índice
 
-| Archivo | Tarea | Estado | Fecha |
-| --- | --- | --- | --- |
-| [001-seleccion-heroui-uber.md](001-seleccion-heroui-uber.md) | 1 | Aprobada | 2026-11-03 |
+| Archivo                                                      | Tarea | Estado   | Fecha      |
+| ------------------------------------------------------------ | ----- | -------- | ---------- |
+| [001-seleccion-heroui-uber.md](001-seleccion-heroui-uber.md) | 1     | Aprobada | 2026-11-03 |

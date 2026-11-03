@@ -31,7 +31,12 @@ export function Header({ onOpenFilters }: Props) {
             {FUEL_LABELS[fuelType]} · {formatRadius(radius)}
           </span>
         )}
-        <button className={styles.iconBtn} onClick={onOpenFilters} type="button" title="Cambiar filtros">
+        <button
+          className={styles.iconBtn}
+          onClick={onOpenFilters}
+          type="button"
+          title="Cambiar filtros"
+        >
           <Settings size={18} strokeWidth={2} />
         </button>
       </div>
