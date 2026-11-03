@@ -1,4 +1,5 @@
 import { Fuel, Diamond, Truck } from 'lucide-react'
+import { Label, Radio, RadioGroup } from '@heroui/react'
 import type { FuelType } from '../stores/useFilters'
 import styles from './FuelTypeSelector.module.css'
 
@@ -15,19 +16,25 @@ interface Props {
 
 export function FuelTypeSelector({ selected, onSelect }: Props) {
   return (
-    <div className={styles.grid}>
-      {FUEL_OPTIONS.map((opt) => (
-        <button
-          key={opt.type}
-          className={`${styles.card} ${selected === opt.type ? styles.active : ''}`}
-          onClick={() => onSelect(opt.type)}
-          type="button"
-        >
-          <opt.Icon className={styles.icon} size={28} strokeWidth={1.5} />
-          <span className={styles.label}>{opt.label}</span>
-          <span className={styles.desc}>{opt.desc}</span>
-        </button>
-      ))}
-    </div>
+    <RadioGroup
+      name="fuel-type"
+      value={selected ?? undefined}
+      onChange={(value) => onSelect(value as FuelType)}
+    >
+      <Label>Tipo de gasolina</Label>
+      <div className={styles.grid}>
+        {FUEL_OPTIONS.map((opt) => (
+          <Radio key={opt.type} value={opt.type}>
+            <Radio.Content
+              className={`${styles.card} ${selected === opt.type ? styles.active : ''}`}
+            >
+              <opt.Icon className={styles.icon} size={28} strokeWidth={1.5} />
+              <span className={styles.label}>{opt.label}</span>
+              <span className={styles.desc}>{opt.desc}</span>
+            </Radio.Content>
+          </Radio>
+        ))}
+      </div>
+    </RadioGroup>
   )
 }
