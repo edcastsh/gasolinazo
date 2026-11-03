@@ -18,6 +18,7 @@ Use the XP-inspired workflow adopted in Pastry POS. **These stages are opt-in:**
 - Refine **one** story at a time with 2–3 Given/When/Then acceptance criteria, a plan of at most five steps, explicit out-of-scope items, and known dependencies.
 - Confirm the API behavior from actual code, a contract, or user-provided evidence. Never invent endpoints, response shapes or backend guarantees.
 - Highlight open product and UX decisions. **Do not implement yet.** Wait for explicit approval of the story and plan.
+- Once approved, create its specification in `documentation/docs/stories/` before moving it to Ready or starting `/pair`.
 
 ### 3. Pair (implementation / ODD: observable outcomes)
 

@@ -1,5 +1,6 @@
 import type { FuelType } from '../stores/useFilters'
 import { Navigation } from 'lucide-react'
+import { Button } from '@heroui/react'
 import styles from './StationCard.module.css'
 
 interface Station {
@@ -39,10 +40,10 @@ export function StationCard({ station, fuelType, rank, isCheapest }: Props) {
   const price = station.prices[fuelType]
 
   return (
-    <button
+    <Button
       className={`${styles.card} ${isCheapest ? styles.cheapest : ''}`}
-      onClick={() => openDirections(station)}
-      type="button"
+      onPress={() => openDirections(station)}
+      variant={isCheapest ? 'secondary' : 'tertiary'}
     >
       <div className={styles.rank}>
         <span className={styles.rankNumber}>{rank}</span>
@@ -60,6 +61,6 @@ export function StationCard({ station, fuelType, rank, isCheapest }: Props) {
         {price != null && <span className={styles.price}>${price.toFixed(2)}</span>}
         <Navigation className={styles.navIcon} size={16} strokeWidth={2} />
       </div>
-    </button>
+    </Button>
   )
 }
