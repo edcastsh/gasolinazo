@@ -68,37 +68,6 @@ Prices reflect the data available from the latest matching extraction, not guara
 | Icons | Lucide React |
 | Backend | Node.js, Express, MongoDB |
 
-## Getting started
-
-**Requirements:** Node.js, pnpm, and a running instance of the Gasolinazo API.
-
-1. Install dependencies:
-
-   ```bash
-   pnpm install
-   ```
-
-2. Set the API URL in a `.env.local` file:
-
-   ```env
-   VITE_API_URL=http://localhost:3001
-   ```
-
-   If this variable isn't set, the app defaults to `http://localhost:3001`.
-
-3. Start the development server:
-
-   ```bash
-   pnpm dev
-   ```
-
-### Checks
-
-```bash
-pnpm lint
-pnpm build
-```
-
 ## Development
 
 I organize work into small, reviewable changes, with acceptance criteria and verification before implementation. Project conventions and ongoing decisions are documented in [AGENTS.md](./AGENTS.md) and [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md).
