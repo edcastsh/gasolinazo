@@ -1,34 +1,56 @@
-# Gasolinazo
+# Gasolinazo ⛽
 
-Encuentra la gasolinera más barata cerca de ti.
+Encuentra gasolineras cerca de ti y compara sus precios sin tener que buscarlas una por una.
 
-## Qué es
-
-Gasolinazo es una aplicación web móvil que te muestra en un mapa las gasolineras de tu zona ordenadas por precio. Selecciona el tipo de gasolina que necesitas, ajusta el radio de búsqueda y obtén al instante la opción más económica junto a tu ubicación.
-
-## Para quién es
-
-Para cualquier conductor en México que quiera ahorrar en cada carga de gasolina. Sin registros, sin complicaciones: abres la app, permites tu ubicación y listo.
+Gasolinazo es una aplicación web pensada para conductores en México. Eliges el combustible que necesitas, defines qué tan lejos quieres buscar y ves las estaciones cercanas en un mapa y una lista.
 
 ## Cómo funciona
 
-1. Elige tu tipo de gasolina (regular, premium o diésel).
-2. Selecciona el radio de búsqueda (desde 2.5 km hasta 20 km).
-3. Comparte tu ubicación y el mapa te muestra las gasolineras cercanas ordenadas de más barata a más cara.
+1. Selecciona **Regular, Premium o Diésel**.
+2. Elige un radio de **2.5, 5, 10 o 15 km**.
+3. Permite el acceso a tu ubicación para consultar las estaciones de la zona.
+4. Explora el mapa y compara precios en la lista.
 
-## Stack
+La aplicación recuerda tus filtros para que no tengas que configurarlos cada vez.
 
-- React + TypeScript + Vite
-- React-Leaflet para el mapa
-- TanStack Query para datos
-- Zustand para estado
-- Lucide para iconos
+## Tecnologías
 
-## Desarrollo
+- **React + TypeScript + Vite** — interfaz y desarrollo
+- **React Leaflet + Leaflet** — mapa de estaciones
+- **TanStack Query** — consultas y caché de datos
+- **Zustand** — filtros y estado de la aplicación
+- **Lucide React** — iconografía
+
+## Ejecutar localmente
+
+Necesitas Node.js y pnpm, además de una instancia de la API de Gasolinazo.
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-La API debe estar corriendo en `localhost:3001`. Ver [gasolinazo-api](https://github.com/edcastsh/gasolinazo-api) para más detalles.
+Por defecto, el frontend consulta `http://localhost:3001`. Si tu API está en otra dirección, crea un archivo `.env.local`:
+
+```env
+VITE_API_URL=http://localhost:3001
+```
+
+La integración de precios utiliza `GET /precios` con filtros como `tipo`, `lat`, `lng` y `radius`. La API también expone rutas de gasolineras e historial que el cliente tiene preparadas.
+
+## Calidad y desarrollo
+
+```bash
+pnpm lint
+pnpm build
+```
+
+Trabajo con cambios pequeños y verificables, historias de usuario y criterios de aceptación antes de implementar. Las reglas de colaboración y el contexto actual del proyecto están en [AGENTS.md](./AGENTS.md) y [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md).
+
+## Estado
+
+Proyecto en desarrollo. Los precios mostrados dependen de la información disponible a través de la API y pueden diferir del precio en estación.
+
+---
+
+Desarrollado por [Erick Beltran](https://github.com/edcastsh).
