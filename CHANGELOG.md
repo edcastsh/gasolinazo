@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.7.0](https://github.com/edcastsh/gasolinazo/compare/gasolinazo-web-v0.6.0...gasolinazo-web-v0.7.0) (2026-11-03)
+
+
+### Features
+
+* improve dashboard search states and Uber design ([dc125d2](https://github.com/edcastsh/gasolinazo/commit/dc125d21cf4206f7e03e68891f0e183631837621))
+* improve dashboard search states and Uber design ([9bed297](https://github.com/edcastsh/gasolinazo/commit/9bed2973857e259437697b6b8af5dbad45bff752))
+
 ## [0.6.0](https://github.com/edcastsh/gasolinazo/compare/gasolinazo-web-v0.5.3...gasolinazo-web-v0.6.0) (2026-11-03)
 
 
