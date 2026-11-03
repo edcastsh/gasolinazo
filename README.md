@@ -30,8 +30,8 @@ Choose a fuel type, set a search radius, and share your location to explore near
 ## Screenshots
 
 | Fuel selection | Station map | Price comparison |
-|:---:|:---:|:---:|
-| Coming soon | Coming soon | Coming soon |
+| :------------: | :---------: | :--------------: |
+|  Coming soon   | Coming soon |   Coming soon    |
 
 ## Architecture
 
@@ -59,14 +59,14 @@ Prices reflect the data available from the latest matching extraction, not guara
 
 ## Tech stack
 
-| Area | Technologies |
-| --- | --- |
-| Frontend | React, TypeScript, Vite |
-| Maps | Leaflet, React Leaflet |
-| Data fetching | TanStack Query |
-| State management | Zustand |
-| Icons | Lucide React |
-| Backend | Node.js, Express, MongoDB |
+| Area             | Technologies              |
+| ---------------- | ------------------------- |
+| Frontend         | React, TypeScript, Vite   |
+| Maps             | Leaflet, React Leaflet    |
+| Data fetching    | TanStack Query            |
+| State management | Zustand                   |
+| Icons            | Lucide React              |
+| Backend          | Node.js, Express, MongoDB |
 
 ## Development
 

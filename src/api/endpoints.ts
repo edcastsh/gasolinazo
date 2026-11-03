@@ -1,8 +1,7 @@
 import { apiFetch } from './client'
 import type { Gasolinera, HistoryEntry, PreciosParams } from '../types/api'
 
-export const fetchGasolineras = () =>
-  apiFetch<Gasolinera[]>('/gasolineras')
+export const fetchGasolineras = () => apiFetch<Gasolinera[]>('/gasolineras')
 
 export const fetchGasolinera = (placeId: string) =>
   apiFetch<Gasolinera[]>(`/gasolineras/${placeId}`)

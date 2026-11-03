@@ -10,7 +10,7 @@ Living project notes. Update after approved work so the next session starts with
 - `src/stores/useFilters.ts` persists selected filters and last known coordinates in localStorage.
 - `src/hooks/usePrecios.ts` uses TanStack Query to request nearby station prices.
 - API client defaults to `http://localhost:3001`, overridable with `VITE_API_URL`.
-- Quality scripts: `pnpm test`, `pnpm lint` and `pnpm build`.
+- Quality scripts: `pnpm test`, `pnpm lint`, `pnpm build`, `pnpm format` and `pnpm format:check`.
 - Backend source reviewed in private `edcastsh/gasolinazo-api`: Express 5 + TypeScript + MongoDB 7. A separate scraper downloads XML station and fuel-price publications, combines them by `place_id`, and inserts timestamped station snapshots into MongoDB.
 - API mounts `/health`, `/gasolineras`, and `/precios`. `/precios` accepts optional `tipo`, `desde`, `hasta`, `lng`, `lat`, `radius` filters; returns the latest matching extraction per station, up to 500 records, including `placeId`, `name`, `coordinates`, `prices`, `extractedAt`. `/gasolineras/:place_id` returns snapshots and `/gasolineras/:place_id/historial` returns price history.
 - API `extractedAt` records extraction time, **not necessarily the price publication/update time**. Do not promise real-time accuracy. Backend availability, production deployment, and source refresh schedule have not been verified.
@@ -50,6 +50,7 @@ _None._
 - Use Vitest and Testing Library for selection-flow behavior tests.
 - Use HeroUI v3 with Tailwind CSS v4 for new UI, beginning with selection and dashboard.
 - Use HeroUI Uber light design theme for the selection story; dark mode is out of scope.
+- Use Husky with commitlint, lint-staged and branch-name validation; use Release Please for versioning and changelogs on `main`; CI enforces tests, lint, format and build.
 
 ## Approved stories
 
@@ -85,3 +86,4 @@ Plan: install HeroUI v3, Tailwind CSS v4, and PostCSS; obtain HeroUI Uber theme 
 - 2026-11-03: Replaced CARTO tile endpoint, which returned an API-key-required image, with OpenStreetMap tiles and required attribution. `pnpm build` passes; existing lint warning in `StationList.tsx` remains unrelated.
 - 2026-11-03: Approved story #1 to migrate fuel and radius selection to HeroUI v3 using its Uber light design theme. Pending approval of `/pair` test list; no application code changed.
 - 2026-11-03: Added Vitest/Testing Library, HeroUI v3 and Tailwind CSS v4. Applied the Uber light theme and migrated fuel/radius choices to accessible HeroUI radio groups. Automated tests and production build pass; manual mobile, keyboard and screen-reader verification remains.
+- 2026-11-03: Added Husky pre-commit, commit-msg and pre-push hooks; added Release Please and pull-request CI workflows. Formatted the codebase; CI runs tests, lint, formatting and build with pnpm.

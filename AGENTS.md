@@ -53,7 +53,7 @@ Use the XP-inspired workflow adopted in Pastry POS. **These stages are opt-in:**
 ## Session context and delivery
 
 - Read `PROJECT_CONTEXT.md` at the start. Update its state, Kanban, decisions, blockers and next-session notes after an approved activity.
-- At the end of implementation, run `pnpm lint` and `pnpm build`, plus any applicable tests. Report commands, results, manual checks and remaining risks.
+- At the end of implementation, run `pnpm test`, `pnpm lint`, `pnpm format:check` and `pnpm build`. Report commands, results, manual checks and remaining risks.
 - Do not commit, push, create PRs, deploy, or change external services unless explicitly requested.
 - After a PR is merged, update local `main` before branching again; avoid continuing on a merged feature branch.
 - Separate refactoring from new behavior and keep existing functionality stable.

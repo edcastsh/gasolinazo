@@ -15,18 +15,13 @@ interface Props {
   onRefresh: () => void
 }
 
-function haversineDistance(
-  lat1: number, lng1: number,
-  lat2: number, lng2: number,
-): number {
+function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371000
   const dLat = ((lat2 - lat1) * Math.PI) / 180
   const dLng = ((lng2 - lng1) * Math.PI) / 180
   const a =
     Math.sin(dLat / 2) ** 2 +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLng / 2) ** 2
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 }
 
@@ -48,14 +43,14 @@ export function StationList({ stations, fuelType, userCoords, loading, onRefresh
   const sorted = useMemo(() => {
     return stations
       .filter((s) => s.prices[fuelType] != null)
-      .filter((s) =>
-        isWithinBounds(bounds, s.coordinates.lat, s.coordinates.lng),
-      )
+      .filter((s) => isWithinBounds(bounds, s.coordinates.lat, s.coordinates.lng))
       .map((s) => ({
         ...s,
         distance: haversineDistance(
-          userCoords.lat, userCoords.lng,
-          s.coordinates.lat, s.coordinates.lng,
+          userCoords.lat,
+          userCoords.lng,
+          s.coordinates.lat,
+          s.coordinates.lng,
         ),
       }))
       .sort((a, b) => {
@@ -120,10 +115,7 @@ export function StationList({ stations, fuelType, userCoords, loading, onRefresh
   }, [sheetState])
 
   return (
-    <div
-      ref={sheetRef}
-      className={`${styles.sheet} ${isDragging ? styles.dragging : ''}`}
-    >
+    <div ref={sheetRef} className={`${styles.sheet} ${isDragging ? styles.dragging : ''}`}>
       <div
         className={styles.handle}
         onClick={handleDragHandle}
@@ -139,17 +131,10 @@ export function StationList({ stations, fuelType, userCoords, loading, onRefresh
             {sorted.length} gasolinera{sorted.length !== 1 ? 's' : ''}
           </h2>
           {cheapest != null && (
-            <span className={styles.cheapestBadge}>
-              Desde ${cheapest.toFixed(2)}
-            </span>
+            <span className={styles.cheapestBadge}>Desde ${cheapest.toFixed(2)}</span>
           )}
         </div>
-        <button
-          className={styles.refreshBtn}
-          onClick={onRefresh}
-          disabled={loading}
-          type="button"
-        >
+        <button className={styles.refreshBtn} onClick={onRefresh} disabled={loading} type="button">
           {loading ? (
             <span className={styles.refreshSpinner} />
           ) : (
@@ -170,10 +155,7 @@ export function StationList({ stations, fuelType, userCoords, loading, onRefresh
         </div>
       ) : (
         <div ref={listRef} className={styles.list}>
-          <div
-            className={styles.listInner}
-            style={{ height: virtualizer.getTotalSize() }}
-          >
+          <div className={styles.listInner} style={{ height: virtualizer.getTotalSize() }}>
             {virtualizer.getVirtualItems().map((vi) => {
               const s = sorted[vi.index]
               return (

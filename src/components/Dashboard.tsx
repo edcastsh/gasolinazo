@@ -40,7 +40,11 @@ export function Dashboard() {
         loading={isLoading || isFetching}
         onRefresh={() => refetch()}
       />
-      <FilterModal key={filtersOpen ? 'open' : 'closed'} open={filtersOpen} onClose={() => setFiltersOpen(false)} />
+      <FilterModal
+        key={filtersOpen ? 'open' : 'closed'}
+        open={filtersOpen}
+        onClose={() => setFiltersOpen(false)}
+      />
     </div>
   )
 }

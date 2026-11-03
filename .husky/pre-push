@@ -1,0 +1,3 @@
+: git pre-push hook
+
+sh .husky/check-branch-name.sh

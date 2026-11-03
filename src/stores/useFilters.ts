@@ -31,13 +31,17 @@ function saveStored(
 ) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ fuelType, radius, coords }))
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 }
 
 function clearStored() {
   try {
     localStorage.removeItem(STORAGE_KEY)
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 }
 
 const stored = loadStored()
