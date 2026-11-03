@@ -1,4 +1,5 @@
 import { Fuel, Settings } from 'lucide-react'
+import { Button } from '@heroui/react'
 import { useFilters, type FuelType, type RadiusValue } from '../stores/useFilters'
 import styles from './Header.module.css'
 
@@ -31,14 +32,16 @@ export function Header({ onOpenFilters }: Props) {
             {FUEL_LABELS[fuelType]} · {formatRadius(radius)}
           </span>
         )}
-        <button
+        <Button
           className={styles.iconBtn}
-          onClick={onOpenFilters}
-          type="button"
-          title="Cambiar filtros"
+          isIconOnly
+          aria-label="Cambiar filtros"
+          onPress={onOpenFilters}
+          size="sm"
+          variant="tertiary"
         >
           <Settings size={18} strokeWidth={2} />
-        </button>
+        </Button>
       </div>
     </div>
   )

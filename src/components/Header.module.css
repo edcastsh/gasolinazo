@@ -7,7 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  gap: 12px;
+  padding: 12px clamp(16px, 4vw, 32px);
   padding-top: max(12px, env(safe-area-inset-top));
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
@@ -19,6 +20,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
 .logo {
@@ -33,19 +35,24 @@
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
 .right {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .pill {
   font-size: 12px;
   font-weight: 500;
   color: var(--text-secondary);
-  background: var(--bg-secondary);
+  max-width: calc(100vw - 184px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: var(--surface-secondary);
   padding: 4px 10px;
   border-radius: 9999px;
   white-space: nowrap;
@@ -55,7 +62,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--bg-secondary);
+  background: var(--surface-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,4 +72,25 @@
 
 .iconBtn:active {
   background: var(--border);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding-inline: 24px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .pill {
+    max-width: none;
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+
+  .iconBtn {
+    width: 40px;
+    height: 40px;
+  }
 }

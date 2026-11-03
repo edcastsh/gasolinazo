@@ -8,6 +8,12 @@ import styles from './StationMap.module.css'
 
 const priceIconCache = new Map<number, L.DivIcon>()
 
+const FUEL_LABELS: Record<FuelType, string> = {
+  regular: 'Regular',
+  premium: 'Premium',
+  diesel: 'Diésel',
+}
+
 function createPriceIcon(price: number) {
   const cached = priceIconCache.get(price)
   if (cached) return cached
@@ -83,10 +89,11 @@ function ViewportMarkers({ stations, fuelType }: { stations: Gasolinera[]; fuelT
             icon={createPriceIcon(price)}
           >
             <Popup>
-              <div>
+              <div className="station-popup">
                 <strong>{s.name}</strong>
-                <br />
-                {fuelType}: ${price.toFixed(2)}
+                <span>
+                  {FUEL_LABELS[fuelType]} · ${price.toFixed(2)}
+                </span>
               </div>
             </Popup>
           </Marker>
