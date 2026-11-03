@@ -2,9 +2,9 @@
 
 # Gasolinazo ⛽
 
-### Compara precios de gasolina cerca de ti.
+### Compare fuel prices near you.
 
-Una aplicación web para encontrar gasolineras cercanas, consultar sus precios y decidir dónde cargar combustible.
+A web app that helps drivers in Mexico find nearby gas stations, compare available prices, and decide where to fill up.
 
 ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
@@ -13,98 +13,98 @@ Una aplicación web para encontrar gasolineras cercanas, consultar sus precios y
 
 </div>
 
-## El proyecto
+## Overview
 
-En México, el precio de la gasolina puede cambiar de una estación a otra, incluso dentro de la misma zona. Gasolinazo busca hacer más sencilla esa comparación desde el celular, sin tener que revisar varias estaciones por separado.
+Fuel prices can vary from one station to another, even within the same neighborhood. I built Gasolinazo to make it easier to compare nearby options without checking each station individually.
 
-El usuario selecciona el tipo de combustible, define un radio de búsqueda y comparte su ubicación para consultar las estaciones disponibles en un mapa y una lista.
+Choose a fuel type, set a search radius, and share your location to explore nearby stations on a map and in a list.
 
-## Funcionalidades
+## Features
 
-- **Búsqueda por ubicación.** Consulta gasolineras dentro de un radio de 2.5, 5, 10 o 15 km.
-- **Filtros por combustible.** Regular, Premium y Diésel.
-- **Mapa y listado.** Dos formas de explorar las estaciones cercanas y comparar precios.
-- **Preferencias guardadas.** Conserva el combustible y radio seleccionados entre visitas.
-- **Actualización de resultados.** Permite volver a consultar los precios disponibles.
+- **Location-based search** — Find stations within 2.5, 5, 10, or 15 km.
+- **Fuel filters** — Compare Regular, Premium, or Diesel prices.
+- **Map and list views** — Explore nearby stations and compare available prices.
+- **Saved preferences** — Keep your selected fuel type and search radius between visits.
+- **Manual refresh** — Fetch updated results whenever you need them.
 
-## Vista previa
+## Screenshots
 
-| Selección de combustible | Mapa de estaciones | Comparación de precios |
+| Fuel selection | Station map | Price comparison |
 |:---:|:---:|:---:|
-| Captura pendiente | Captura pendiente | Captura pendiente |
+| Coming soon | Coming soon | Coming soon |
 
-## Arquitectura
+## Architecture
 
-El frontend está desarrollado con **React, TypeScript y Vite**. Utiliza **React Leaflet** para el mapa, **TanStack Query** para las consultas a la API y **Zustand** para los filtros y preferencias del usuario.
+The frontend is built with **React, TypeScript, and Vite**. It uses **React Leaflet** for the map, **TanStack Query** for server-state management, and **Zustand** for filters and local preferences.
 
-La aplicación consume una API independiente construida con **Express y MongoDB**. Esa API obtiene información de estaciones y precios a partir de publicaciones externas, conserva registros de extracción y permite consultar precios por ubicación, combustible e historial por estación.
+A separate **Express and MongoDB** API processes station and fuel-price data from external publications. It stores timestamped snapshots and provides endpoints for nearby prices, station details, and price history.
 
 ```text
-Publicaciones de estaciones y precios
-                  │
-                  ▼
-         Scraper de datos
-                  │
-                  ▼
-               MongoDB
-                  │
-                  ▼
+Station and fuel-price publications
+                 |
+                 v
+            Data scraper
+                 |
+                 v
+              MongoDB
+                 |
+                 v
              Express API
-                  │
-                  ▼
-          Gasolinazo Web
+                 |
+                 v
+            Gasolinazo Web
 ```
 
-Los precios corresponden a los datos disponibles en la última extracción consultada; no deben interpretarse como cotizaciones en tiempo real.
+Prices reflect the data available from the latest matching extraction, not guaranteed real-time prices at the pump.
 
-## Tecnologías
+## Tech stack
 
-| Área | Herramientas |
+| Area | Technologies |
 | --- | --- |
-| Interfaz | React, TypeScript, Vite |
-| Mapas | Leaflet, React Leaflet |
-| Consultas | TanStack Query |
-| Estado | Zustand |
-| Iconos | Lucide React |
+| Frontend | React, TypeScript, Vite |
+| Maps | Leaflet, React Leaflet |
+| Data fetching | TanStack Query |
+| State management | Zustand |
+| Icons | Lucide React |
 | Backend | Node.js, Express, MongoDB |
 
-## Desarrollo local
+## Getting started
 
-**Requisitos:** Node.js, pnpm y una instancia de la API de Gasolinazo.
+**Requirements:** Node.js, pnpm, and a running instance of the Gasolinazo API.
 
-1. Instala las dependencias:
+1. Install dependencies:
 
    ```bash
    pnpm install
    ```
 
-2. Configura la URL de la API en `.env.local`:
+2. Set the API URL in a `.env.local` file:
 
    ```env
    VITE_API_URL=http://localhost:3001
    ```
 
-   Si no defines esta variable, el frontend utiliza `http://localhost:3001` por defecto.
+   If this variable isn't set, the app defaults to `http://localhost:3001`.
 
-3. Inicia el servidor de desarrollo:
+3. Start the development server:
 
    ```bash
    pnpm dev
    ```
 
-### Verificaciones
+### Checks
 
 ```bash
 pnpm lint
 pnpm build
 ```
 
-## Desarrollo del proyecto
+## Development
 
-Organizo el trabajo en historias pequeñas, con criterios de aceptación y verificaciones antes de incorporar cambios. El flujo de trabajo y las decisiones técnicas están documentados en [AGENTS.md](./AGENTS.md) y [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md).
+I organize work into small, reviewable changes, with acceptance criteria and verification before implementation. Project conventions and ongoing decisions are documented in [AGENTS.md](./AGENTS.md) and [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md).
 
-Gasolinazo sigue en desarrollo. El código de la API se mantiene en un repositorio privado.
+Gasolinazo is under active development. The API source code is maintained in a private repository.
 
 ---
 
-Desarrollado por **[Erick Beltran](https://github.com/edcastsh)** · [Portafolio](https://edcastsh.vercel.app) · [LinkedIn](https://www.linkedin.com/in/erickedelbeltran)
+Built by **[Erick Beltran](https://github.com/edcastsh)** · [Portfolio](https://edcastsh.vercel.app) · [LinkedIn](https://www.linkedin.com/in/erickedelbeltran)
