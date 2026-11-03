@@ -43,7 +43,9 @@ Use the XP-inspired workflow adopted in Pastry POS. **These stages are opt-in:**
 
 - The frontend currently uses `VITE_API_URL` (default `http://localhost:3001`) in `src/api/client.ts`.
 - Inspect `src/api/endpoints.ts` and `src/types/api.ts` before changing data access. Current endpoints include `/precios`, `/gasolineras`, `/gasolineras/:placeId`, and `/gasolineras/:placeId/historial`.
-- The backend is a separate project. **Do not assume access to its code or modify its API, database, infrastructure, or deployment from this repository.**
+- The backend is the separate, private `edcastsh/gasolinazo-api` repository. Its source has been inspected: Express + MongoDB, with a TypeScript XML scraper. Read its relevant route/type code when available, but **never copy private backend implementation, secrets, internal infrastructure or scraper details into public files**. Do not modify its API, database, infrastructure, or deployment from this repository without separate explicit approval.
+- Confirmed backend: `/precios` filters by optional `tipo`, date range and geographic center/radius; selects the latest matching extraction per `place_id` and caps output at 500. It does **not** guarantee results sorted by price. Check client-side sorting before describing a cheapest-first experience.
+- The `extractedAt` field is the database snapshot extraction time, not necessarily the time a station last updated its price. Keep price freshness claims accurate.
 - Before a contract change, explain its purpose, downstream impact, compatibility and rollback; request explicit approval. Prefer backward-compatible changes.
 - Never commit API credentials, tokens, personal location data or private infrastructure details. `VITE_*` values are embedded in client builds and must not contain secrets.
 - Fuel-price data may be delayed; avoid presenting it as guaranteed real-time pricing unless the API provides verified freshness information.
